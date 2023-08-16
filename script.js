@@ -1,6 +1,10 @@
 let scrapeEmails = document.getElementById('scrapeEmails');
 
+chrome.runtime.onMessage.addListener(request, sender, sendResponse) => {
 
+    let emails = request.emails;
+    alert(emails)
+}
 scrapeEmails.addEventListener('click', async () => {
     let [tab] = await chrome.tabs.query({active:
     true, currentWindow: true});
@@ -18,7 +22,7 @@ function scrapeEmailsFromPage() {
     let emails = document.body.innerHTML.match
     (emailRegEx);
 
-    alert(emails)
+    chrome.runtime.sendMessage({emails})
 
 
 
