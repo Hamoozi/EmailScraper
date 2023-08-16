@@ -1,10 +1,27 @@
 let scrapeEmails = document.getElementById('scrapeEmails');
 
-chrome.runtime.onMessage.addListener(request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     let emails = request.emails;
-    alert(emails)
-}
+    let list = document.getElementById('emailsList')
+
+    if(emails == null || emails.length == 0){
+        let li = document.createElement('li');
+        li.innerText = "No emails were found";
+        list.appendChild(li);
+    }
+    else{
+        emails.forEach((email) => {
+            let li = document.createElement("li");
+            li.innerText = email;
+            list.appendChild(li)
+
+
+        });
+    }
+
+
+})
 scrapeEmails.addEventListener('click', async () => {
     let [tab] = await chrome.tabs.query({active:
     true, currentWindow: true});
