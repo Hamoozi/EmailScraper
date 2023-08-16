@@ -33,7 +33,7 @@ scrapeEmails.addEventListener('click', async () => {
 })
 
 function scrapeEmailsFromPage() {
-    const emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const emailRegEx = /[\w\.=-]+@[\w\.-]+\.[\w]{2,3}/
     
     let emails = document.body.innerHTML.match
     (emailRegEx);
