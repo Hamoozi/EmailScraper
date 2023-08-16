@@ -16,7 +16,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             li.innerText = email;
             list.appendChild(li)
 
-
         });
     }
 
