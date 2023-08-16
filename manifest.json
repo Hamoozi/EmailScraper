@@ -1,0 +1,6 @@
+{
+    "name": "Email Scraper",
+    "description": "Scrapes webpage for emails",
+    "versions": "1.0",
+    "manifest_version": 3
+}
